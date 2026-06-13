@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Islamic History — Reclaiming Muslim Civilisation from the Past</title>
+    <meta name="description"
+        content="Explore 1,400 years of Muslim civilisation through Firas Alkhateeb's Lost Islamic History — from pre-Islamic Arabia to the Intellectual Golden Ages and beyond.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        night: '#07101F', navy: '#0D1B2E',
+                        'teal-d': '#153848', 'teal-m': '#1E5A70',
+                        gold: '#C9A84C', 'gold-l': '#E3C97D', 'gold-p': '#F0E6C4',
+                        aqua: '#6BC4CF', ink: '#CFC4AE',
+                    },
+                    fontFamily: {
+                        display: ['Cinzel', 'serif'],
+                        body: ['"Crimson Pro"', 'Georgia', 'serif'],
+                        ui: ['"DM Sans"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: #07101F;
+            color: #CFC4AE;
+            font-family: 'Crimson Pro', Georgia, serif;
+            overflow-x: hidden
+        }
+
+        /* Progress */
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            z-index: 1001;
+            background: linear-gradient(90deg, #8B6A1A, #C9A84C, #E3C97D, #C9A84C);
+            background-size: 300% 100%;
+            animation: gFlow 4s linear infinite;
+            width: 0%;
+            transition: width .1s
+        }
+
+        @keyframes gFlow {
+            0% {
+                background-position: 0%
+            }
+
+            100% {
+                background-position: 300%
+            }
+        }
+
+        /* Nav */
+        #nav {
+            position: fixed;
+            top: 2px;
+            left: 0;
+            right: 0;
+            z-index: 900;
+            transition: background .4s, box-shadow .4s
+        }
+
+        #nav.scrolled {
+            background: rgba(7, 16, 31, .96);
+            box-shadow: 0 1px 0 rgba(201, 168, 76, .18);
+            backdrop-filter: blur(14px)
+        }
+
+        .nav-link {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .75rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #CFC4AE;
+            text-decoration: none;
+            transition: color .2s;
+            position: relative;
+            padding-bottom: 3px
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #C9A84C;
+            transform: scaleX(0);
+            transition: transform .3s
+        }
+
+        .nav-link:hover {
+            color: #E3C97D
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1)
+        }
+
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease
+        }
+
+        #mobile-menu.open {
+            max-height: 380px
+        }
+
+        /* Shimmer title */
+        .shimmer-text {
+            background: linear-gradient(120deg, #8B6A1A 0%, #C9A84C 30%, #F0E6C4 50%, #C9A84C 70%, #8B6A1A 100%);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 6s linear infinite
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 100%
+            }
+
+            100% {
+                background-position: -100%
+            }
+        }
+
+        /* Divider ornament */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(201, 168, 76, .35), transparent)
+        }
+
+        /* Fade-up hero animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .a0 {
+            animation: fadeUp .9s .1s ease forwards;
+            opacity: 0
+        }
+
+        .a1 {
+            animation: fadeUp .9s .3s ease forwards;
+            opacity: 0
+        }
+
+        .a2 {
+            animation: fadeUp .9s .5s ease forwards;
+            opacity: 0
+        }
+
+        .a3 {
+            animation: fadeUp .9s .7s ease forwards;
+            opacity: 0
+        }
+
+        .a4 {
+            animation: fadeUp .9s .9s ease forwards;
+            opacity: 0
+        }
+
+        .a5 {
+            animation: fadeUp .9s 1.1s ease forwards;
+            opacity: 0
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity .75s ease, transform .75s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* Chapter cards */
+        .ch-card {
+            border: 1px solid rgba(201, 168, 76, .15);
+            background: rgba(13, 27, 46, .8);
+            backdrop-filter: blur(4px);
+            transition: all .35s ease
+        }
+
+        .ch-card:hover {
+            border-color: rgba(201, 168, 76, .5);
+            transform: translateY(-6px);
+            background: rgba(21, 56, 72, .8);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, .5), 0 0 24px rgba(201, 168, 76, .08)
+        }
+
+        /* Scholar cards */
+        .scholar-card {
+            border: 1px solid rgba(201, 168, 76, .15);
+            background: rgba(13, 27, 46, .85);
+            transition: all .35s ease
+        }
+
+        .scholar-card:hover {
+            border-color: rgba(201, 168, 76, .42);
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .5)
+        }
+
+        /* Achievement cards */
+        .ach-card {
+            border: 1px solid rgba(201, 168, 76, .13);
+            background: rgba(13, 27, 46, .65);
+            transition: all .3s ease
+        }
+
+        .ach-card:hover {
+            border-color: rgba(201, 168, 76, .38);
+            background: rgba(21, 56, 72, .7)
+        }
+
+        /* Quote cards */
+        .q-card {
+            border-left: 3px solid rgba(201, 168, 76, .4);
+            background: rgba(13, 27, 46, .7);
+            transition: border-color .3s
+        }
+
+        .q-card:hover {
+            border-left-color: #C9A84C
+        }
+
+        /* Buttons */
+        .btn-gold {
+            background: linear-gradient(135deg, #8B6A1A, #C9A84C);
+            color: #07101F;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .8rem;
+            font-weight: 500;
+            letter-spacing: .07em;
+            padding: 12px 30px;
+            border-radius: 2px;
+            display: inline-block;
+            text-decoration: none;
+            transition: all .3s ease;
+            border: none;
+            cursor: pointer
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #C9A84C, #E3C97D);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(201, 168, 76, .32)
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(201, 168, 76, .45);
+            color: #E3C97D;
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .8rem;
+            letter-spacing: .07em;
+            padding: 12px 30px;
+            border-radius: 2px;
+            display: inline-block;
+            text-decoration: none;
+            transition: all .3s ease;
+            cursor: pointer
+        }
+
+        .btn-outline:hover {
+            border-color: #C9A84C;
+            background: rgba(201, 168, 76, .08);
+            transform: translateY(-2px)
+        }
+
+        /* Timeline */
+        .tl-line-v {
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(201, 168, 76, .4) 10%, rgba(201, 168, 76, .4) 90%, transparent)
+        }
+
+        @media(min-width:768px) {
+            .tl-line-v {
+                left: 50%;
+                transform: translateX(-.5px)
+            }
+        }
+
+        .tl-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #C9A84C;
+            flex-shrink: 0;
+            box-shadow: 0 0 12px rgba(201, 168, 76, .55)
+        }
+
+        /* Stat numbers */
+        .stat-n {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #C9A84C;
+            line-height: 1
+        }
+
+        .stat-l {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: rgba(207, 196, 174, .55);
+            margin-top: 4px
+        }
+
+        /* Field badge */
+        .badge {
+            font-family: 'DM Sans', sans-serif;
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .14em;
+            border: 1px solid rgba(201, 168, 76, .3);
+            color: #C9A84C;
+            padding: 3px 10px;
+            border-radius: 2px;
+            display: inline-block
+        }
+
+        /* Hero gradient overlay */
+        .hero-overlay {
+            background: radial-gradient(ellipse at center, rgba(7, 16, 31, .15) 0%, rgba(7, 16, 31, .65) 55%, rgba(7, 16, 31, .97) 100%)
+        }
+
+        /* Section backgrounds */
+        .bg-a {
+            background: #07101F
+        }
+
+        .bg-b {
+            background: #0D1B2E
+        }
+
+        .bg-c {
+            background: #101F33
+        }
+
+        /* Bottom fade */
+        .fade-bot {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, #07101F);
+            pointer-events: none
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #07101F
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(201, 168, 76, .3);
+            border-radius: 3px
+        }
+
+        /* Arabic text */
+        .bismillah {
+            font-size: 2rem;
+            color: rgba(201, 168, 76, .6);
+            line-height: 1.2;
+            font-family: serif
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ═══ SCROLL PROGRESS ═══ -->
+    <div id="progress"></div>
+
+    <!-- ═══════════════════════════════════ NAVIGATION ═══ -->
+    <nav id="nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2 group">
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" class="shrink-0">
+                        <polygon
+                            points="13,1.5 15.6,9.3 23.8,9.3 17.4,14.3 19.8,22.3 13,17.7 6.2,22.3 8.6,14.3 2.2,9.3 10.4,9.3"
+                            fill="none" stroke="#C9A84C" stroke-width="1.2" stroke-linejoin="round" />
+                    </svg>
+                    <span class="font-display text-xs tracking-[.22em] text-gold-l uppercase hidden sm:inline">Lost
+                        Islamic History</span>
+                </a>
+
+                <!-- Desktop links -->
+                <div class="hidden md:flex items-center gap-7">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#chapters" class="nav-link">Chapters</a>
+                    <a href="#timeline" class="nav-link">Timeline</a>
+                    <a href="#scholars" class="nav-link">Scholars</a>
+                    <a href="#golden" class="nav-link">Golden Age</a>
+                    <a href="#quotes" class="nav-link">Quotes</a>
+                </div>
+
+                <!-- Mobile hamburger -->
+                <button id="menu-btn" class="md:hidden text-ink p-1 focus:outline-none" aria-label="Toggle menu">
+                    <svg id="ico-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="ico-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden border-t border-gold border-opacity-10"
+            style="background:rgba(7,16,31,.97)">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col gap-5">
+                <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
+                <a href="#chapters" class="nav-link" onclick="closeMobileMenu()">Chapters</a>
+                <a href="#timeline" class="nav-link" onclick="closeMobileMenu()">Timeline</a>
+                <a href="#scholars" class="nav-link" onclick="closeMobileMenu()">Scholars</a>
+                <a href="#golden" class="nav-link" onclick="closeMobileMenu()">Golden Age</a>
+                <a href="#quotes" class="nav-link" onclick="closeMobileMenu()">Quotes</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════ HERO ═══ -->
+    <section id="home" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-a">
+
+        <!-- Islamic geometric SVG tile pattern -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="islamicTile" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse">
+                        <!-- 8-pointed star (outer r=52, inner r=22, center 80,80) -->
+                        <polygon
+                            points="80,28 88.4,59.9 118.8,43.2 102.1,73.6 134,80 102.1,86.4 118.8,116.8 88.4,100.1 80,132 71.6,100.1 41.2,116.8 57.9,86.4 26,80 57.9,73.6 41.2,43.2 71.6,59.9"
+                            fill="none" stroke="#C9A84C" stroke-width=".9" stroke-linejoin="round" opacity=".16" />
+                        <!-- Octagon outline -->
+                        <polygon points="80,32 107.3,52.7 116,80 107.3,107.3 80,128 52.7,107.3 44,80 52.7,52.7"
+                            fill="none" stroke="#C9A84C" stroke-width=".4" opacity=".08" />
+                        <!-- Center diamond -->
+                        <polygon points="80,62 98,80 80,98 62,80" fill="none" stroke="#C9A84C" stroke-width=".5"
+                            opacity=".1" />
+                        <!-- Corner quarter-circles -->
+                        <circle cx="0" cy="0" r="22" fill="none" stroke="#C9A84C" stroke-width=".4" opacity=".07" />
+                        <circle cx="160" cy="0" r="22" fill="none" stroke="#C9A84C" stroke-width=".4" opacity=".07" />
+                        <circle cx="0" cy="160" r="22" fill="none" stroke="#C9A84C" stroke-width=".4" opacity=".07" />
+                        <circle cx="160" cy="160" r="22" fill="none" stroke="#C9A84C" stroke-width=".4" opacity=".07" />
+                        <!-- Cross lines connecting stars -->
+                        <line x1="80" y1="0" x2="80" y2="160" stroke="#C9A84C" stroke-width=".3" opacity=".05" />
+                        <line x1="0" y1="80" x2="160" y2="80" stroke="#C9A84C" stroke-width=".3" opacity=".05" />
+                        <line x1="0" y1="0" x2="160" y2="160" stroke="#C9A84C" stroke-width=".25" opacity=".04" />
+                        <line x1="160" y1="0" x2="0" y2="160" stroke="#C9A84C" stroke-width=".25" opacity=".04" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#islamicTile)" />
+            </svg>
+        </div>
+
+        <!-- Radial darkening overlay -->
+        <div class="hero-overlay absolute inset-0 z-1 pointer-events-none"></div>
+
+        <!-- Hero content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto w-full pt-24 pb-16">
+
+            <!-- Bismillah -->
+            <div class="bismillah a0 mb-6">﷽</div>
+
+            <!-- Eyebrow -->
+            <p class="a1 font-ui text-xs sm:text-sm tracking-[.22em] uppercase mb-5" style="color:#6BC4CF">
+                Firas Alkhateeb &nbsp;·&nbsp; Hurst &amp; Company · 2014
+            </p>
+
+            <!-- Main title -->
+            <h1 class="a2 font-display leading-none select-none">
+                <span class="shimmer-text block text-5xl sm:text-7xl lg:text-8xl font-bold">Lost</span>
+                <span class="block text-5xl sm:text-7xl lg:text-8xl font-bold text-gold-p mt-1">Islamic</span>
+                <span class="shimmer-text block text-5xl sm:text-7xl lg:text-8xl font-bold mt-1">History</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="a3 font-body text-xl sm:text-2xl italic mt-7 mb-10" style="color:#CFC4AE">
+                Reclaiming Muslim Civilisation from the Past
+            </p>
+
+            <!-- CTAs -->
+            <div class="a4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#chapters" class="btn-gold">Explore Chapters</a>
+                <a href="#timeline" class="btn-outline">View Timeline</a>
+            </div>
+
+            <!-- Stats bar -->
+            <div class="a5 flex flex-wrap justify-center gap-8 mt-14">
+                <div class="text-center">
+                    <div class="stat-n">1,400+</div>
+                    <div class="stat-l">Years of History</div>
+                </div>
+                <div class="self-stretch w-px" style="background:rgba(201,168,76,.2)"></div>
+                <div class="text-center">
+                    <div class="stat-n">11</div>
+                    <div class="stat-l">Chapters</div>
+                </div>
+                <div class="self-stretch w-px" style="background:rgba(201,168,76,.2)"></div>
+                <div class="text-center">
+                    <div class="stat-n">3</div>
+                    <div class="stat-l">Continents</div>
+                </div>
+                <div class="self-stretch w-px" style="background:rgba(201,168,76,.2)"></div>
+                <div class="text-center">
+                    <div class="stat-n">100+</div>
+                    <div class="stat-l">Key Figures</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+            style="opacity:.38">
+            <span class="font-ui text-xs tracking-widest" style="color:#CFC4AE">SCROLL</span>
+            <div class="w-px h-8 animate-bounce" style="background:#C9A84C"></div>
+        </div>
+
+        <div class="fade-bot z-10"></div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ ABOUT ═══ -->
+    <section id="about" class="bg-a py-24 px-4">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <div class="divider mb-8">
+                <span class="font-display text-xs tracking-[.28em] uppercase text-gold">About the Book</span>
+            </div>
+            <p class="font-body text-xl sm:text-2xl leading-relaxed" style="color:#D8CEBC">
+                From the barren deserts of pre-Islamic Arabia to the flourishing centres of learning in Baghdad,
+                Córdoba, and Cairo — <em class="text-gold-l">Lost Islamic History</em> traces the extraordinary
+                journey of Muslim civilisation across fourteen centuries.
+            </p>
+            <p class="font-body text-lg leading-relaxed mt-5" style="color:rgba(207,196,174,.72)">
+                Author Firas Alkhateeb challenges the modern disconnect between Muslims and their history,
+                revealing the profound contributions of Islamic scholars in mathematics, astronomy, medicine,
+                and philosophy that laid the foundations of the modern world. This is the story of a civilisation
+                that changed humanity — and must not be forgotten.
+            </p>
+
+            <!-- Hero quote -->
+            <div class="mt-12 relative px-6">
+                <div class="font-display text-6xl text-gold absolute -top-3 left-0" style="opacity:.18">"</div>
+                <blockquote class="font-body text-xl sm:text-2xl italic" style="color:#E3C97D">
+                    If anyone travels on a road in search of knowledge, Allah will cause him to travel on one of the
+                    roads of Paradise.
+                </blockquote>
+                <footer class="mt-4 font-ui text-xs tracking-widest uppercase text-gold">
+                    — Prophet Muhammad ﷺ
+                </footer>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ CHAPTERS ═══ -->
+    <section id="chapters" class="bg-b py-24 px-4 relative overflow-hidden">
+        <!-- Dot-grid subtle texture -->
+        <div class="absolute inset-0 pointer-events-none"
+            style="background-image:radial-gradient(rgba(201,168,76,.045) 1px,transparent 1px);background-size:28px 28px">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-14 reveal">
+                <p class="font-ui text-xs tracking-[.24em] uppercase mb-3" style="color:#6BC4CF">The Complete Journey
+                </p>
+                <h2 class="font-display text-3xl sm:text-4xl text-gold-p mb-4">Eleven Chapters</h2>
+                <div class="divider"><span class="text-gold text-sm">✦</span></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+
+                <!-- Ch 01 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">🌵</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 01</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Pre-Islamic Arabia</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The geography, nomadic tribal culture, and polytheistic beliefs of the Arabian Peninsula before
+                        Islam — the harsh cradle of a coming revolution.
+                    </p>
+                </div>
+
+                <!-- Ch 02 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">🌙</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 02</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Life of the Prophet</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Muhammad ﷺ — from his birth in Mecca (570 CE), the first revelation (610 CE), persecution, the
+                        Hijra, battles, and the bloodless conquest of Mecca (630 CE).
+                    </p>
+                </div>
+
+                <!-- Ch 03 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">⚖️</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 03</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">The Rightly Guided Caliphs</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Abu Bakr, Umar, Uthman, and Ali — the four successors who stabilised the Muslim state, conquered
+                        Syria and Persia, and set lasting precedents for Islamic governance.
+                    </p>
+                </div>
+
+                <!-- Ch 04 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">🏛️</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 04</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">The Muslim State</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The Umayyad (661–750) and Abbasid Caliphates — Muslim armies reaching Spain and India
+                        simultaneously, the Abbasid revolution, and the founding of Baghdad.
+                    </p>
+                </div>
+
+                <!-- Ch 05 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">📚</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 05</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Intellectual Golden Ages</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The 9th–13th century explosion in mathematics, astronomy, medicine, physics, and Islamic
+                        jurisprudence — led by the House of Wisdom in Baghdad.
+                    </p>
+                </div>
+
+                <!-- Ch 06 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">⚔️</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 06</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Upheaval</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The Fatimid Caliphate, the Isma'ili Qarmatians, the Crusades (1095–1291), and the Mongol
+                        invasions — centuries of external and internal conflict that tested Muslim unity.
+                    </p>
+                </div>
+
+                <!-- Ch 07 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">🕌</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 07</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Al-Andalus</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The flourishing of Islamic civilisation in medieval Spain — Córdoba, Granada, and 700 years of
+                        remarkable cross-cultural exchange between Muslims, Christians, and Jews.
+                    </p>
+                </div>
+
+                <!-- Ch 08 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">📜</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 08</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">The Edge</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The Muslim world at a critical crossroads — navigating the pressures of Crusader kingdoms,
+                        Mongol destruction, the fall of Baghdad (1258), and a fractured political landscape.
+                    </p>
+                </div>
+
+                <!-- Ch 09 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">🌅</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 09</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Rebirth</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The rise of the Ottoman, Safavid, and Mughal empires (1300s–1500s) — three new superpowers
+                        ushering in a new chapter of Muslim power, art, and cultural renaissance.
+                    </p>
+                </div>
+
+                <!-- Ch 10 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">🌒</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 10</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Decline</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        European colonialism, the fall of the Ottoman Caliphate (1924), and the fragmentation of the
+                        Muslim world — the painful unravelling of a once-dominant global civilisation.
+                    </p>
+                </div>
+
+                <!-- Ch 11 -->
+                <div class="ch-card rounded-lg p-6 reveal">
+                    <div class="text-3xl mb-4">💡</div>
+                    <div class="font-ui text-xs text-gold opacity-55 tracking-widest mb-1">Chapter 11</div>
+                    <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">Old and New Ideas</h3>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        The modern struggle to reconcile Islamic heritage with contemporary challenges — and the ongoing
+                        effort to reclaim a lost civilisational identity and purpose.
+                    </p>
+                </div>
+
+                <!-- Summary card -->
+                <div class="ch-card rounded-lg p-6 reveal flex flex-col justify-between"
+                    style="background:rgba(201,168,76,.055)">
+                    <div>
+                        <div class="font-display text-3xl text-gold mb-3">✦</div>
+                        <h3 class="font-display text-sm text-gold-l mb-3 leading-snug">A Complete Vision</h3>
+                        <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.7)">
+                            From desert sands to world empire — fourteen centuries of Muslim civilisation, rediscovered
+                            and retold with scholarly care and passionate clarity.
+                        </p>
+                    </div>
+                    <div class="mt-6 border-t pt-4" style="border-color:rgba(201,168,76,.15)">
+                        <p class="font-ui text-xs tracking-widest text-gold uppercase">Hurst &amp; Company · London ·
+                            2014</p>
+                        <p class="font-ui text-xs mt-1" style="color:rgba(207,196,174,.45)">ISBN: 978-1-84904-397-7</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ TIMELINE ═══ -->
+    <section id="timeline" class="bg-a py-24 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14 reveal">
+                <p class="font-ui text-xs tracking-[.24em] uppercase mb-3" style="color:#6BC4CF">Across the Centuries
+                </p>
+                <h2 class="font-display text-3xl sm:text-4xl text-gold-p mb-4">Key Events in History</h2>
+                <div class="divider"><span class="text-gold text-sm">✦</span></div>
+            </div>
+
+            <div class="relative">
+                <div class="tl-line-v"></div>
+
+                <div class="space-y-0">
+
+                    <!-- Timeline item helper: even = left side on md, odd = right side on md -->
+                    <!-- MOBILE: all left-aligned with padding-left for the line -->
+
+                    <!-- 570 CE -->
+                    <div class="relative flex md:justify-end items-start group reveal">
+                        <div class="md:w-1/2 md:pr-12 pl-10 md:pl-0 pb-10">
+                            <div class="q-card rounded-lg p-5" style="border-left-color:rgba(201,168,76,.35)">
+                                <span class="badge mb-2">570 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Birth of the Prophet ﷺ</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Muhammad ibn Abdullah born in Mecca to the Banu Hashim clan of the Quraysh tribe —
+                                    an orphan who would change the world.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 610 CE -->
+                    <div class="relative flex md:justify-start items-start group reveal">
+                        <div class="md:w-1/2 md:pl-12 pl-10 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">610 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">The First Revelation</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    In the cave of Hira, the angel Jibreel commands Muhammad: <em>"Read!"</em> — the
+                                    first verses of the Quran descend. The Islamic movement is born.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 622 CE -->
+                    <div class="relative flex md:justify-end items-start group reveal">
+                        <div class="md:w-1/2 md:pr-12 pl-10 md:pl-0 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">622 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">The Hijra — Islamic Calendar
+                                    Begins</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Prophet Muhammad emigrates from Mecca to Yathrib (Medina), founding the first Muslim
+                                    state and marking Year One of the Islamic calendar.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 624 CE -->
+                    <div class="relative flex md:justify-start items-start group reveal">
+                        <div class="md:w-1/2 md:pl-12 pl-10 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">624 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Battle of Badr</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Against all odds, 313 Muslims defeat a 1,000-strong Quraysh army — establishing the
+                                    Muslim community as a genuine military and political force.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 630 CE -->
+                    <div class="relative flex md:justify-end items-start group reveal">
+                        <div class="md:w-1/2 md:pr-12 pl-10 md:pl-0 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">630 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Conquest of Mecca</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    10,000 Muslims march on Mecca. The city surrenders nearly bloodlessly. 360 idols are
+                                    destroyed. A remarkable era of mercy — former enemies are pardoned.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 636 CE -->
+                    <div class="relative flex md:justify-start items-start group reveal">
+                        <div class="md:w-1/2 md:pl-12 pl-10 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">636 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Battle of Yarmuk</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Khalid ibn al-Walid decisively defeats the Byzantine imperial army in present-day
+                                    Jordan–Syria. The Byzantine Empire loses Syria permanently.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 637 CE -->
+                    <div class="relative flex md:justify-end items-start group reveal">
+                        <div class="md:w-1/2 md:pr-12 pl-10 md:pl-0 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">637 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Jerusalem Opens Its Gates</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Caliph Umar personally accepts the surrender of Jerusalem. Jews are permitted to
+                                    return to the Holy City for the first time in over 500 years.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 711 CE -->
+                    <div class="relative flex md:justify-start items-start group reveal">
+                        <div class="md:w-1/2 md:pl-12 pl-10 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">711 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Spain &amp; India in the Same
+                                    Year</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Tariq ibn Ziyad crosses into Iberia (Gibraltar) while Muhammad bin Qasim leads
+                                    forces into Sindh (India) — the Umayyad empire reaches its greatest extent
+                                    simultaneously.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 762 CE -->
+                    <div class="relative flex md:justify-end items-start group reveal">
+                        <div class="md:w-1/2 md:pr-12 pl-10 md:pl-0 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">762 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">Baghdad Founded</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Caliph Al-Mansur establishes Baghdad between the Tigris and Euphrates. Within 20
+                                    years it becomes the largest city in the world — over one million residents.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 830 CE -->
+                    <div class="relative flex md:justify-start items-start group reveal">
+                        <div class="md:w-1/2 md:pl-12 pl-10 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">~830 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">House of Wisdom Flourishes</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    Caliph Al-Ma'mun's Bayt al-Hikmah becomes the world's premier centre of science —
+                                    library, university, translation institute, and research lab, all under one roof.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 859 CE -->
+                    <div class="relative flex md:justify-end items-start group reveal">
+                        <div class="md:w-1/2 md:pr-12 pl-10 md:pl-0 pb-10">
+                            <div class="q-card rounded-lg p-5">
+                                <span class="badge mb-2">859 CE</span>
+                                <h3 class="font-display text-sm text-gold-l mt-2 mb-1">World's Oldest University</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    The University of al-Qarawiyyin is founded in Fez, Morocco by <em>Fatima
+                                        al-Fihri</em> — a Muslim woman. It continues operating to this day.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"></div>
+                    </div>
+
+                    <!-- 1099 CE -->
+                    <div class="relative flex md:justify-start items-start group reveal">
+                        <div class="md:w-1/2 md:pl-12 pl-10 pb-10">
+                            <div class="q-card rounded-lg p-5" style="border-left-color:rgba(201,100,76,.5)">
+                                <span class="badge mb-2" style="border-color:rgba(201,100,76,.4);color:#E0835C">1099
+                                    CE</span>
+                                <h3 class="font-display text-sm mb-1 mt-2" style="color:#E0C0AE">Crusaders Capture
+                                    Jerusalem</h3>
+                                <p class="font-body text-sm" style="color:rgba(207,196,174,.7)">
+                                    After a week-long siege, Crusader forces take Jerusalem. The city's entire civilian
+                                    population is massacred. A shattered Muslim world struggles to respond.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tl-dot absolute left-[13px] md:left-1/2 md:-translate-x-1/2 top-5"
+                            style="background:#E0835C;box-shadow:0 0 12px rgba(224,131,92,.5)"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ SCHOLARS ═══ -->
+    <section id="scholars" class="bg-b py-24 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-14 reveal">
+                <p class="font-ui text-xs tracking-[.24em] uppercase mb-3" style="color:#6BC4CF">The Golden Age</p>
+                <h2 class="font-display text-3xl sm:text-4xl text-gold-p mb-4">Scholars Who Shaped the World</h2>
+                <div class="divider"><span class="text-gold text-sm">✦</span></div>
+                <p class="font-body text-base sm:text-lg mt-5 max-w-xl mx-auto" style="color:rgba(207,196,174,.65)">
+                    These are the giants of the 9th–13th century Islamic Golden Age — mathematicians, physicians,
+                    physicists and geographers whose discoveries still underpin modern science.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+                <!-- Al-Khwarizmi -->
+                <div class="scholar-card rounded-lg p-6 reveal">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+                            style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25)">🔢</div>
+                        <div>
+                            <h3 class="font-display text-base text-gold-l">Al-Khwarizmi</h3>
+                            <p class="font-ui text-xs mt-0.5" style="color:rgba(207,196,174,.5)">780 – 850 CE · Persia
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-3"><span class="badge">Mathematics</span></div>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Invented algebra (<em>al-jabr</em>) and popularised the Indian numeral system (0–9) across the
+                        world. The word <em>algorithm</em> derives from the Latin version of his name.
+                    </p>
+                    <div class="mt-4 pt-4 border-t" style="border-color:rgba(201,168,76,.1)">
+                        <p class="font-ui text-xs" style="color:rgba(201,168,76,.6)">Key work: <em>The Compendious Book
+                                on Calculation by Completion and Balancing</em></p>
+                    </div>
+                </div>
+
+                <!-- Ibn Sina -->
+                <div class="scholar-card rounded-lg p-6 reveal">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+                            style="background:rgba(107,196,207,.1);border:1px solid rgba(107,196,207,.25)">🏥</div>
+                        <div>
+                            <h3 class="font-display text-base text-gold-l">Ibn Sina (Avicenna)</h3>
+                            <p class="font-ui text-xs mt-0.5" style="color:rgba(207,196,174,.5)">980 – 1037 CE · Persia
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-3"><span class="badge">Medicine</span></div>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Proposed that disease spreads through air and water — 800 years before germ theory. His
+                        <em>Canon of Medicine</em> was a standard medical textbook in Europe until the 17th century.
+                    </p>
+                    <div class="mt-4 pt-4 border-t" style="border-color:rgba(201,168,76,.1)">
+                        <p class="font-ui text-xs" style="color:rgba(201,168,76,.6)">Key work: <em>The Canon of Medicine
+                                (Al-Qanun fi al-Tibb)</em></p>
+                    </div>
+                </div>
+
+                <!-- Ibn al-Haytham -->
+                <div class="scholar-card rounded-lg p-6 reveal">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+                            style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25)">🔭</div>
+                        <div>
+                            <h3 class="font-display text-base text-gold-l">Ibn al-Haytham</h3>
+                            <p class="font-ui text-xs mt-0.5" style="color:rgba(207,196,174,.5)">965 – 1040 CE · Iraq /
+                                Egypt</p>
+                        </div>
+                    </div>
+                    <div class="mb-3"><span class="badge">Physics &amp; Optics</span></div>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Father of modern optics and pioneer of the <strong class="text-gold-p font-normal">scientific
+                            method</strong>. Invented the Camera Obscura. Concluded light travels in straight lines and
+                        enters the eye — not the reverse.
+                    </p>
+                    <div class="mt-4 pt-4 border-t" style="border-color:rgba(201,168,76,.1)">
+                        <p class="font-ui text-xs" style="color:rgba(201,168,76,.6)">Key work: <em>Book of Optics (Kitab
+                                al-Manazir)</em></p>
+                    </div>
+                </div>
+
+                <!-- Omar Khayyam -->
+                <div class="scholar-card rounded-lg p-6 reveal">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+                            style="background:rgba(107,196,207,.1);border:1px solid rgba(107,196,207,.25)">📐</div>
+                        <div>
+                            <h3 class="font-display text-base text-gold-l">Omar Khayyam</h3>
+                            <p class="font-ui text-xs mt-0.5" style="color:rgba(207,196,174,.5)">1048 – 1131 CE · Persia
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-3"><span class="badge">Mathematics</span></div>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Solved cubic equations geometrically and formulated the binomial theorem. Designed a solar
+                        calendar more accurate than the Gregorian calendar used today.
+                    </p>
+                    <div class="mt-4 pt-4 border-t" style="border-color:rgba(201,168,76,.1)">
+                        <p class="font-ui text-xs" style="color:rgba(201,168,76,.6)">Also celebrated for his
+                            philosophical poetry: <em>The Rubaiyat</em></p>
+                    </div>
+                </div>
+
+                <!-- Al-Idrisi -->
+                <div class="scholar-card rounded-lg p-6 reveal">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+                            style="background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25)">🗺️</div>
+                        <div>
+                            <h3 class="font-display text-base text-gold-l">Muhammad al-Idrisi</h3>
+                            <p class="font-ui text-xs mt-0.5" style="color:rgba(207,196,174,.5)">1100 – 1165 CE · Sicily
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-3"><span class="badge">Geography</span></div>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Created the most accurate world map of the Middle Ages — the <em>Tabula Rogeriana</em> — under
+                        the patronage of the Norman King Roger II of Sicily. It remained the benchmark for centuries.
+                    </p>
+                    <div class="mt-4 pt-4 border-t" style="border-color:rgba(201,168,76,.1)">
+                        <p class="font-ui text-xs" style="color:rgba(201,168,76,.6)">Earth's circumference calculated to
+                            within 37 km of the actual value.</p>
+                    </div>
+                </div>
+
+                <!-- Al-Ghazali -->
+                <div class="scholar-card rounded-lg p-6 reveal">
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center text-2xl shrink-0"
+                            style="background:rgba(107,196,207,.1);border:1px solid rgba(107,196,207,.25)">✨</div>
+                        <div>
+                            <h3 class="font-display text-base text-gold-l">Abu Hamid al-Ghazali</h3>
+                            <p class="font-ui text-xs mt-0.5" style="color:rgba(207,196,174,.5)">1058 – 1111 CE · Persia
+                            </p>
+                        </div>
+                    </div>
+                    <div class="mb-3"><span class="badge">Philosophy &amp; Theology</span></div>
+                    <p class="font-body text-sm leading-relaxed" style="color:rgba(207,196,174,.72)">
+                        Called the most influential Muslim after the Prophet and Companions. Reconciled orthodox Islamic
+                        theology with philosophical reasoning, and championed Sufism as a spiritual path.
+                    </p>
+                    <div class="mt-4 pt-4 border-t" style="border-color:rgba(201,168,76,.1)">
+                        <p class="font-ui text-xs" style="color:rgba(201,168,76,.6)">Key work: <em>The Revival of the
+                                Religious Sciences (Ihya' Ulum al-Din)</em></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ GOLDEN AGE ACHIEVEMENTS ═══ -->
+    <section id="golden" class="bg-c py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none"
+            style="background-image:radial-gradient(rgba(201,168,76,.04) 1px,transparent 1px);background-size:24px 24px">
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-14 reveal">
+                <p class="font-ui text-xs tracking-[.24em] uppercase mb-3" style="color:#6BC4CF">9th – 13th Century</p>
+                <h2 class="font-display text-3xl sm:text-4xl text-gold-p mb-4">The Intellectual Golden Age</h2>
+                <div class="divider"><span class="text-gold text-sm">✦</span></div>
+                <p class="font-body text-base sm:text-lg mt-5 max-w-2xl mx-auto" style="color:rgba(207,196,174,.65)">
+                    While Europe was in its so-called Dark Ages, the Muslim world was at the forefront of human
+                    knowledge — producing advances that form the basis of the modern scientific world.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+
+                <!-- Mathematics -->
+                <div class="ach-card rounded-lg p-7 reveal">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="text-3xl">∑</div>
+                        <h3 class="font-display text-lg text-gold-l">Mathematics</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Al-Khwarizmi <strong
+                                    class="text-gold-p font-normal">invented algebra</strong> — the word itself derives
+                                from his book <em>al-Jabr</em> (820 CE)</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Introduced the Indian
+                                numeral system (0–9) and the concept of <strong
+                                    class="text-gold-p font-normal">zero</strong> to the Western world</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Developed trigonometric
+                                tables to determine exact prayer direction (qibla) from any city on Earth — the basis of
+                                GPS geometry today</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Astronomy -->
+                <div class="ach-card rounded-lg p-7 reveal">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="text-3xl">🌌</div>
+                        <h3 class="font-display text-lg text-gold-l">Astronomy</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">First to <strong
+                                    class="text-gold-p font-normal">separate astronomy from astrology</strong> —
+                                replacing mythology with empirical observation</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Al-Biruni (11th c.)
+                                proposed the Earth <strong class="text-gold-p font-normal">rotates on its axis</strong>
+                                — 500 years before Copernicus and Galileo</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Perfected the <strong
+                                    class="text-gold-p font-normal">astrolabe</strong> for precise navigation — the
+                                standard instrument until the 1700s</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Medicine -->
+                <div class="ach-card rounded-lg p-7 reveal">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="text-3xl">⚕️</div>
+                        <h3 class="font-display text-lg text-gold-l">Medicine</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Ibn Sina identified <strong
+                                    class="text-gold-p font-normal">disease transmission through air, water, and
+                                    soil</strong> — the first germ theory, ~800 years early</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Baghdad's <strong
+                                    class="text-gold-p font-normal">free public hospitals</strong> (9th c.) had
+                                specialists, surgical wards, psychiatric care, and maternity units</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Ibn al-Nafis (13th c.)
+                                accurately described <strong class="text-gold-p font-normal">pulmonary blood
+                                    circulation</strong> — 300 years before William Harvey</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Physics & Technology -->
+                <div class="ach-card rounded-lg p-7 reveal">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="text-3xl">⚗️</div>
+                        <h3 class="font-display text-lg text-gold-l">Physics &amp; Technology</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Ibn al-Haytham established
+                                the <strong class="text-gold-p font-normal">scientific method</strong> — empirical
+                                observation over philosophical speculation</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Camera Obscura invented —
+                                the direct ancestor of modern <strong class="text-gold-p font-normal">photography and
+                                    cinema</strong></p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-gold mt-0.5 shrink-0">◆</span>
+                            <p class="font-body text-sm" style="color:rgba(207,196,174,.75)">Al-Jazari (12th c.)
+                                engineered <strong class="text-gold-p font-normal">water-powered automata</strong>,
+                                crankshafts, and programmable musical robots</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Fact strip -->
+            <div class="reveal grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div class="text-center p-5 rounded-lg"
+                    style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.12)">
+                    <div class="stat-n">800+</div>
+                    <div class="stat-l">Books by Ibn Sina</div>
+                </div>
+                <div class="text-center p-5 rounded-lg"
+                    style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.12)">
+                    <div class="stat-n">200+</div>
+                    <div class="stat-l">Works by Ibn al-Haytham</div>
+                </div>
+                <div class="text-center p-5 rounded-lg"
+                    style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.12)">
+                    <div class="stat-n">170K km</div>
+                    <div class="stat-l">Ibn Battuta's travels</div>
+                </div>
+                <div class="text-center p-5 rounded-lg"
+                    style="background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.12)">
+                    <div class="stat-n">37 km</div>
+                    <div class="stat-l">Error in earth's diameter</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ QUOTES ═══ -->
+    <section id="quotes" class="bg-a py-24 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-14 reveal">
+                <p class="font-ui text-xs tracking-[.24em] uppercase mb-3" style="color:#6BC4CF">Words That Endure</p>
+                <h2 class="font-display text-3xl sm:text-4xl text-gold-p mb-4">Notable Quotes</h2>
+                <div class="divider"><span class="text-gold text-sm">✦</span></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Quote 1 -->
+                <div class="q-card rounded-lg p-7 reveal">
+                    <div class="font-display text-4xl text-gold opacity-20 mb-3 leading-none">"</div>
+                    <blockquote class="font-body text-lg sm:text-xl italic leading-relaxed text-gold-p">
+                        If anyone travels on a road in search of knowledge, Allah will cause him to travel on one of the
+                        roads of Paradise.
+                    </blockquote>
+                    <footer class="mt-5 font-ui text-xs tracking-wider text-gold uppercase">
+                        — Prophet Muhammad ﷺ
+                    </footer>
+                </div>
+
+                <!-- Quote 2 -->
+                <div class="q-card rounded-lg p-7 reveal">
+                    <div class="font-display text-4xl text-gold opacity-20 mb-3 leading-none">"</div>
+                    <blockquote class="font-body text-lg sm:text-xl italic leading-relaxed text-gold-p">
+                        Neither kill a child, nor a woman, nor an aged man. Bring no harm to the trees. You are likely
+                        to pass by people who have devoted their lives to monastic services; leave them alone.
+                    </blockquote>
+                    <footer class="mt-5 font-ui text-xs tracking-wider text-gold uppercase">
+                        — Abu Bakr al-Siddiq · Warfare Rules to His Army
+                    </footer>
+                </div>
+
+                <!-- Quote 3 -->
+                <div class="q-card rounded-lg p-7 reveal">
+                    <div class="font-display text-4xl text-gold opacity-20 mb-3 leading-none">"</div>
+                    <blockquote class="font-body text-lg sm:text-xl italic leading-relaxed text-gold-p">
+                        The Jews are one community with the believers. To the Jews their religion and to the Muslims
+                        their religion — with the exception of anyone who has done wrong or committed treachery, for he
+                        harms only himself and his family.
+                    </blockquote>
+                    <footer class="mt-5 font-ui text-xs tracking-wider text-gold uppercase">
+                        — The Constitution of Medina · 622 CE
+                    </footer>
+                </div>
+
+                <!-- Quote 4 -->
+                <div class="q-card rounded-lg p-7 reveal">
+                    <div class="font-display text-4xl text-gold opacity-20 mb-3 leading-none">"</div>
+                    <blockquote class="font-body text-lg sm:text-xl italic leading-relaxed text-gold-p">
+                        Great indeed is the crime against religion committed by anyone who supposes that Islam is to be
+                        championed by the denial of mathematical sciences.
+                    </blockquote>
+                    <footer class="mt-5 font-ui text-xs tracking-wider text-gold uppercase">
+                        — Imam al-Ghazali · 1058–1111 CE
+                    </footer>
+                </div>
+
+                <!-- Quote 5 -->
+                <div class="q-card rounded-lg p-7 reveal md:col-span-2">
+                    <div class="font-display text-4xl text-gold opacity-20 mb-3 leading-none">"</div>
+                    <blockquote class="font-body text-xl sm:text-2xl italic leading-relaxed text-gold-p text-center">
+                        I constantly sought knowledge and truth, and it became my belief that for gaining access to the
+                        effulgence and closeness to God, there is no better way than that of searching for truth and
+                        knowledge.
+                    </blockquote>
+                    <footer class="mt-5 font-ui text-xs tracking-wider text-gold uppercase text-center">
+                        — Ibn al-Haytham · Physicist &amp; Father of the Scientific Method · 965–1040 CE
+                    </footer>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════ FOOTER ═══ -->
+    <footer class="bg-b py-16 px-4 border-t" style="border-color:rgba(201,168,76,.12)">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Top row -->
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <svg width="24" height="24" viewBox="0 0 26 26" fill="none">
+                            <polygon
+                                points="13,1.5 15.6,9.3 23.8,9.3 17.4,14.3 19.8,22.3 13,17.7 6.2,22.3 8.6,14.3 2.2,9.3 10.4,9.3"
+                                fill="none" stroke="#C9A84C" stroke-width="1.2" stroke-linejoin="round" />
+                        </svg>
+                        <span class="font-display text-sm tracking-widest text-gold uppercase">Lost Islamic
+                            History</span>
+                    </div>
+                    <p class="font-body text-sm" style="color:rgba(207,196,174,.55)">
+                        Reclaiming Muslim Civilisation from the Past<br>
+                        <em>by Firas Alkhateeb</em>
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-1 text-right">
+                    <p class="font-ui text-xs" style="color:rgba(207,196,174,.5)">Publisher: Hurst &amp; Company, London
+                    </p>
+                    <p class="font-ui text-xs" style="color:rgba(207,196,174,.5)">Distributed by Oxford University Press
+                        (US)</p>
+                    <p class="font-ui text-xs" style="color:rgba(207,196,174,.5)">First published 2014</p>
+                    <p class="font-ui text-xs" style="color:rgba(207,196,174,.5)">ISBN: 978-1-84904-397-7</p>
+                </div>
+            </div>
+
+            <!-- Quick links -->
+            <div class="flex flex-wrap gap-x-8 gap-y-3 mb-10">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#chapters" class="nav-link">Chapters</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#scholars" class="nav-link">Scholars</a>
+                <a href="#golden" class="nav-link">Golden Age</a>
+                <a href="#quotes" class="nav-link">Quotes</a>
+            </div>
+
+            <!-- Divider -->
+            <div class="divider mb-8"><span class="text-gold opacity-30 text-xs">✦</span></div>
+
+            <!-- Bottom row -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="font-ui text-xs text-center sm:text-left" style="color:rgba(207,196,174,.35)">
+                    Web companion based on <em>Lost Islamic History</em> © Firas Alkhateeb, 2014. All rights reserved.
+                </p>
+                <p class="font-ui text-xs" style="color:rgba(207,196,174,.25)">
+                    Built with HTML · Tailwind CSS · Vanilla JS
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ═══════════════════════════════════ JAVASCRIPT ═══ -->
+    <script>
+        // ── Scroll progress bar ──────────────────────────
+        const progressBar = document.getElementById('progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        }, { passive: true });
+
+        // ── Nav background on scroll ─────────────────────
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        // ── Mobile menu toggle ───────────────────────────
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const icoOpen = document.getElementById('ico-open');
+        const icoClose = document.getElementById('ico-close');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+            icoOpen.classList.toggle('hidden', menuOpen);
+            icoClose.classList.toggle('hidden', !menuOpen);
+        });
+
+        function closeMobileMenu() {
+            menuOpen = false;
+            mobileMenu.classList.remove('open');
+            icoOpen.classList.remove('hidden');
+            icoClose.classList.add('hidden');
+        }
+
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (menuOpen && !nav.contains(e.target)) closeMobileMenu();
+        });
+
+        // ── Reveal on scroll (Intersection Observer) ─────
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    revealObs.unobserve(entry.target); // animate once
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        reveals.forEach(el => revealObs.observe(el));
+
+        // ── Smooth scroll for anchor links ───────────────
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = nav.offsetHeight + 8;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
